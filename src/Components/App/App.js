@@ -35,7 +35,6 @@ addTrack(track){
   tracks.push(track);
   this.setState({playlistTracks: tracks});
 }
-
 removeTrack(track) {
     let playlistTracks = this.state.playlistTracks;
     let newPlaylistTracks = playlistTracks.filter(savedTrack => savedTrack.id !== track.id);
@@ -70,7 +69,7 @@ search(term) {
   <div className="App">
     <SearchBar onSearch={this.search}/>
     <div className="App-playlist">
-      <SearchResults searchResults={this.state.searchResults} />
+      <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack()} />
       <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} onRemove={this.props.removeTrack} onSave={this.savePlaylist}/>
     </div>
   </div>

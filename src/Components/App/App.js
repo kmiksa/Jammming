@@ -22,8 +22,10 @@ class App extends React.Component {
 }
 addTrack(track) {
    let tracks = this.state.playlistTracks;
-   tracks.push(track);
-   this.setState({playlistTracks: tracks});
+   if (!tracks.includes(track)) {   // testing if track is already in, if it is it won't add it to the tracklist. 
+     tracks.push(track);
+     this.setState({playlistTracks: tracks});
+   }
  }
 
  removeTrack(track) {
@@ -37,7 +39,7 @@ addTrack(track) {
 }
 
 savePlaylist() {
-    const trackURIs = this.state.playlistTracks.map(track => track.uri);           
+    const trackURIs = this.state.playlistTracks.map(track => track.uri);
     Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
       this.setState({
         playlistName: 'New Playlist',

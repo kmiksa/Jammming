@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './Components/App/App.js';
 import './index.css';
 
+
 ReactDOM.render(
-  <App />,
+  <App  />,
   document.getElementById('root')
 );

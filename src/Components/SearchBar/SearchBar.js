@@ -31,8 +31,8 @@ handleKeyPress(event) {
 render() {
     return(
       <div className="SearchBar">
-  <input placeholder="Enter A Song, Album, or Artist" onChange={this.handleTermChange}  onKeyPress={this.handleKeyPress}/>
-  <a onClick={this.search} >SEARCH</a>
+  <input placeholder="Enter A Song, Album, or Artist" onChange={this.handleTermChange}  /** onKeyUp={this.search} this code will trigger search while typing in the searchBar*/ onKeyDown={this.handleKeyPress}/>
+  <a onClick={this.search}>SEARCH</a>
 </div>
     );
   }
